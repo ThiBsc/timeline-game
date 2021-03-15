@@ -1,0 +1,17 @@
+.join-room-form {
+    display: flex;
+    flex-flow: column;
+    padding: 15px;
+    background: #778899AF;
+    border-radius: 10px;
+
+    position: fixed;
+    left: 20%;
+    right: 20%;
+    top: 25%;
+    transform: translate(0, -50%);
+}
+
+.join-room-form > .btn {
+    margin-top: 20px;
+}

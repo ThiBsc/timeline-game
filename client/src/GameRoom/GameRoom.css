@@ -1,0 +1,70 @@
+.game-room {
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+}
+
+.game-info {
+    display: flex;
+    flex-flow: column;
+}
+
+.game-board {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column;
+}
+
+.game-board .cards {
+    padding: 10px;
+    display: flex;
+    flex-flow: wrap;
+    flex: 1 1 auto;
+}
+
+.game-board > .cards {
+    border-bottom: 2px dashed ivory;
+}
+
+.game-board .player-card {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game-board .cards .card {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.game-board .cards .card:hover {
+    border: 5px solid aliceblue;
+    cursor: pointer;
+}
+
+.messages {
+    word-break: break-all;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.room-name {
+    background: #f5f5f538;
+    color: ivory;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.player-container {
+    display: flex;
+    flex-flow: column;
+    background: #64a6ed12;
+    width: 150px;
+    height: 100%;
+}
+
+.player-list {
+    flex: 1 1 auto;
+    color: ivory;
+    text-align: center;
+}

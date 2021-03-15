@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  flex-flow: column;
+  width: 110px;
+  height: 150px;
+  background: #495260;
+  border-radius: 5%;
+  border: 5px solid #000;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 0;
+}
+
+.card-body img {
+  border-radius: 5% 5% 0 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.card-footer {
+  flex: 0 1 auto;
+  text-align: center;
+  border-radius: 0 0 5% 5%;
+  border-top: 1px solid whitesmoke;
+  font-weight: bold;
+  font-size: 12px;
+  background: steelblue;
+  color: ivory;
+  padding: 0;
+}
+
+.card-solution {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 2em;
+  background: rgba(0,0,0, 0.5);
+  color: lightgrey;
+}
