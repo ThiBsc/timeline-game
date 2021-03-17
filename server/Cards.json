@@ -2,16 +2,16 @@
     "monuments": [
         {
             "name": "Eiffel Tower",
-            "imgUrl": "https://images.pexels.com/photos/1249622/pexels-photo-1249622.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-            "solution": "1889",
-            "intSolution": 1889,
+            "imgUrl": "https://www.tourmag.com/photo/art/default/31957207-29940738.jpg?v=1553612588",
+            "solution": "1887",
+            "intSolution": 1887,
             "dateSource": "wikipedia"
         },
         {
             "name": "Coliseo",
             "imgUrl": "http://www.professionvoyages.com/wp-content/uploads/2017/10/colisee-visite-5-etages.png",
-            "solution": "80 CE",
-            "intSolution": 80,
+            "solution": "70",
+            "intSolution": 70,
             "dateSource": "wikipedia"
         },
         {
@@ -34,6 +34,62 @@
             "solution": "1793",
             "intSolution": 1793,
             "dateSource": "wikipedia"
+        },
+        {
+            "name": "Taj Mahal",
+            "imgUrl": "https://lp-cms-production.imgix.net/2020-11/GettyRF_494057771.jpg",
+            "solution": "1631",
+            "intSolution": 1631,
+            "dateSource": "Unesco"
+        },
+        {
+            "name": "Pisa Tower",
+            "imgUrl": "https://content.wdl.org/4240/thumbnail/1430165039/616x510.jpg",
+            "solution": "1173",
+            "intSolution": 1173,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "The Redeemer",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg/170px-Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg",
+            "solution": "1926",
+            "intSolution": 1926,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "Big Ben",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Bigben.jpg",
+            "solution": "1843",
+            "intSolution": 1843,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "The White House",
+            "imgUrl": "https://www.airfrance.fr/FR/common/common/img/tbaf/news/WAS/la-maison-blanche-l-adresse-la-plus-celebre-des-etats-unis/WAS-la-maison-blanche-l-adresse-la-plus-celebre-des-etats-unis-2_1-1024x512.jpg",
+            "solution": "1792",
+            "intSolution": 1792,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "Sydney Opera",
+            "imgUrl": "https://cdn.radiofrance.fr/s3/cruiser-production/2020/01/ed3e7c3b-7ff7-4319-94cd-312a9de0b4c4/600x337_gettyimages-982774858.jpg",
+            "solution": "1959",
+            "intSolution": 1959,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "Giza pyramid",
+            "imgUrl": "https://cdn.futura-sciences.com/buildsv6/images/wide1920/b/3/c/b3c38b6fa0_111057_pyramide-egypte.jpg",
+            "solution": "-MMM m.",
+            "intSolution": -3000,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "Great Wall",
+            "imgUrl": "https://cdn.futura-sciences.com/buildsv6/images/mediumoriginal/c/a/6/ca691bb7f9_118302_grande-muraille.jpg",
+            "solution": "-II c.",
+            "intSolution": -200,
+            "dateSource": "Wikipedia"
         }
     ]
 }
