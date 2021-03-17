@@ -3,36 +3,36 @@
         {
             "name": "Eiffel Tower",
             "imgUrl": "https://images.pexels.com/photos/1249622/pexels-photo-1249622.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-            "imgAlt": "eiffeltower",
             "solution": "1889",
+            "intSolution": 1889,
             "dateSource": "wikipedia"
         },
         {
             "name": "Coliseo",
             "imgUrl": "http://www.professionvoyages.com/wp-content/uploads/2017/10/colisee-visite-5-etages.png",
-            "imgAlt": "coliseo",
             "solution": "80 CE",
+            "intSolution": 80,
             "dateSource": "wikipedia"
         },
         {
             "name": "Burj Khalifa",
             "imgUrl": "https://www.nemoboat.com/wp-content/uploads/2020/01/visiter-burj-khalifa-dubai.jpg",
-            "imgAlt": "burjkhalifa",
             "solution": "2009",
+            "intSolution": 2009,
             "dateSource": "wikipedia"
         },
         {
             "name": "Liberty Statue",
             "imgUrl": "https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY1MTc1MTk3ODI0MDAxNjA5/topic-statue-of-liberty-gettyimages-960610006-promo.jpg",
-            "imgAlt": "libertystatue",
             "solution": "1886",
+            "intSolution": 1886,
             "dateSource": "wikipedia"
         },
         {
             "name": "Louvre museum",
             "imgUrl": "https://s3.ca-central-1.amazonaws.com/tv5-tv5unis-mogador-qa/Images/BEE/07492640.jpg",
-            "imgAlt": "louvre",
             "solution": "1793",
+            "intSolution": 1793,
             "dateSource": "wikipedia"
         }
     ]

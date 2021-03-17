@@ -65,12 +65,14 @@ io.on("connection", (socket) => {
     let playedCards = [...deck.splice(index, 1)];
 
     roomPlayers[roomId] = {
-      players: [{pseudo: pseudo, isMaster: true, id: socket.id, cards: []}],
+      players: [{pseudo: pseudo, isMaster: true, id: socket.id, cards: [], isPlaying: false}],
       playedCards: playedCards,
       cards: deck
     };
   } else {
-    roomPlayers[roomId].players = [...roomPlayers[roomId].players, {pseudo: pseudo, id: socket.id, cards: []}];
+    roomPlayers[roomId].players = [...roomPlayers[roomId].players, {
+      pseudo: pseudo, isMaster: false, id: socket.id, cards: [], isPlaying: false
+    }];
   }
 
   console.log("connection", roomId, pseudo);
@@ -82,19 +84,61 @@ io.on("connection", (socket) => {
   // Listen for new messages
   socket.on(NEW_MASSAGE_EVENT, (data) => {
     console.log("action message", data);
-    switch (data.action){
-      case 'shuffle':
-        // Shuffle and give card to every players in the room
-        dispatchCards(roomId, 2);
-        roomPlayers[roomId].players.forEach(p => {
-          console.log(p.id);
-          io.to(p.id).emit(PLAYER_CARD_EVENT, p.cards);
-        });
-        // Send the beggining card to everyone
-        io.in(roomId).emit(PLAYED_CARD_EVENT, roomPlayers[roomId].playedCards);
-        break;
-      default:
-        break;
+    if (data.action === 'shuffle'){
+      // Shuffle and give card to every players in the room
+      dispatchCards(roomId, 2);
+      roomPlayers[roomId].players.forEach(p => {
+        //console.log(p.id);
+        p.isPlaying = false;
+        io.to(p.id).emit(PLAYER_CARD_EVENT, p.cards);
+      });
+      // Send the beggining card to everyone
+      io.in(roomId).emit(PLAYED_CARD_EVENT, roomPlayers[roomId].playedCards);
+      // Which player start the game ?
+      let nPlayers = roomPlayers[roomId].players.length;
+      roomPlayers[roomId].players[Math.floor(Math.random() * nPlayers)].isPlaying = true;
+      io.in(roomId).emit(PLAYER_EVENT, roomPlayers[roomId].players);
+    } else if (/^play;\d+;\d+/.test(data.action)){
+      // The player is guessing a card
+      let playerIndex = roomPlayers[roomId].players.findIndex(p => p.id === data.senderId);
+      let currentPlayer = roomPlayers[roomId].players[playerIndex];
+      let move = data.action.split(';');
+      move.shift();
+      move = move.map(value => +value);
+      let playerPos = move[0];
+      let boardPos = move[1];
+      // Move the player card and test if it is correct
+      let playerCard = currentPlayer.cards.splice(playerPos, 1)[0];
+      let boardCards = roomPlayers[roomId].playedCards;
+      let goodAnswer = false;
+      if (boardPos === 0){
+        //console.log(`${playerCard.intSolution} <= ${boardCards[boardPos].intSolution}`);
+        goodAnswer = (playerCard.intSolution <= boardCards[boardPos].intSolution);
+      } else if (boardPos === boardCards.length){
+        //console.log(`${playerCard.intSolution} >= ${boardCards[boardPos-1].intSolution}`);
+        goodAnswer = (playerCard.intSolution >= boardCards[boardPos-1].intSolution);
+      } else {
+        //console.log(`${boardCards[boardPos-1].intSolution} <= ${playerCard.intSolution} <= ${boardCards[boardPos].intSolution}`);
+        goodAnswer = (boardCards[boardPos-1].intSolution <= playerCard.intSolution &&
+                      playerCard.intSolution <= boardCards[boardPos].intSolution);
+      }
+      if (goodAnswer){
+        // Put the card in the played card
+        boardCards.splice(boardPos, 0, playerCard);
+      } else {
+        // Put the card back in the deck and give another card to the current player
+        roomPlayers[roomId].cards.push(playerCard);
+        currentPlayer.cards.push(roomPlayers[roomId].cards.shift());
+      }
+      // give the turn to the next player and send the turn update
+      currentPlayer.isPlaying = false;
+      if (playerIndex+1 === roomPlayers[roomId].players.length){
+        playerIndex = -1;
+      }
+      roomPlayers[roomId].players[playerIndex+1].isPlaying = true;
+      io.in(roomId).emit(PLAYER_EVENT, roomPlayers[roomId].players);
+      io.in(roomId).emit(PLAYED_CARD_EVENT, roomPlayers[roomId].playedCards);
+      io.to(data.senderId).emit(PLAYER_CARD_EVENT, currentPlayer.cards);
     }
   });
 

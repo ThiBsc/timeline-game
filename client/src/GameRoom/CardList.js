@@ -2,15 +2,20 @@ import React from 'react';
 
 import Card from './Card';
 
-const CardList = (props) => {
+const CardList = ({cards, showSolution, canPlay, playCard, selectCard, selectedCard}) => {
     
     return (
         <div className="cards">
             {
-                props.cards.map( (card, index) => {
+                cards.map( (card, index) => {
                     return <Card
                             key={index}
-                            showSolution={props.showSolution}
+                            index={index}
+                            canPlay={canPlay}
+                            playCard={playCard}
+                            selectCard={selectCard}
+                            selectedCard={selectedCard}
+                            showSolution={showSolution}
                             {...card}/>
                 })
             }

@@ -37,17 +37,6 @@
     margin-bottom: 10px;
 }
 
-.game-board .cards .card:hover {
-    border: 5px solid aliceblue;
-    cursor: pointer;
-}
-
-.messages {
-    word-break: break-all;
-    max-height: 200px;
-    overflow: auto;
-}
-
 .room-name {
     background: #f5f5f538;
     color: ivory;

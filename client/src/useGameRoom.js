@@ -13,6 +13,7 @@ const useGameRoom = (roomId, pseudo) => {
   const [playedCards, setPlayedCards] = useState([]);
   const [playerCards, setPlayerCards] = useState([]);
   const [isMaster, setMaster] = useState(false);
+  const [isPlaying, setPlaying] = useState(false);
   const socketRef = useRef();
 
   useEffect(() => {    
@@ -25,8 +26,9 @@ const useGameRoom = (roomId, pseudo) => {
     socketRef.current.on(PLAYER_EVENT, (players) => {
       console.log("new PlayerList", players);
       setPlayers(players);
-      let master = players.find(p => p.isMaster && p.id === socketRef.current.id);
-      setMaster(master !== undefined);
+      let selfPlayer = players.find(p => p.id === socketRef.current.id);
+      setMaster(selfPlayer.isMaster);
+      setPlaying(selfPlayer.isPlaying);
     });
 
     // Listens for global cards update
@@ -56,7 +58,7 @@ const useGameRoom = (roomId, pseudo) => {
     });
   };
 
-  return { sendMessage, players, playedCards, playerCards, isMaster };
+  return { sendMessage, players, playedCards, playerCards, isMaster, isPlaying };
 };
 
 export default useGameRoom;
