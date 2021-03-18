@@ -5,15 +5,18 @@ const NEW_MASSAGE_EVENT = "newMessageEvent";
 const PLAYER_EVENT = 'playerEvent';
 const PLAYED_CARD_EVENT = 'cardPlayedEvent';
 const PLAYER_CARD_EVENT = 'cardPlayerEvent';
+const WINNER_EVENT = 'winnerEvent';
 
 const SOCKET_SERVER_URL = 'http://192.168.0.10:4000';
 
 const useGameRoom = (roomId, pseudo) => {
+  const [gameLogs, setGameLogs] = useState(["🙋‍♂️ welcome"]);
   const [players, setPlayers] = useState([]);
   const [playedCards, setPlayedCards] = useState([]);
   const [playerCards, setPlayerCards] = useState([]);
   const [isMaster, setMaster] = useState(false);
   const [isPlaying, setPlaying] = useState(false);
+  const [winner, setWinner] = useState(null);
   const socketRef = useRef();
 
   useEffect(() => {    
@@ -42,6 +45,20 @@ const useGameRoom = (roomId, pseudo) => {
       console.log("new player CardList", cards);
       setPlayerCards(cards);
     });
+
+    // Listens for winner event
+    socketRef.current.on(WINNER_EVENT, (player) => {
+      console.log("new Winner", player);
+      setWinner(player);
+      if (!player){
+        setGameLogs(["🆕 new game"]);
+      }
+    });
+
+    // Listens for current game log
+    socketRef.current.on(NEW_MASSAGE_EVENT, (message) => {
+      setGameLogs((gameLogs) => [message, ...gameLogs]);
+    });
     
     // Destroys the socket reference
     // when the connection is closed
@@ -58,7 +75,7 @@ const useGameRoom = (roomId, pseudo) => {
     });
   };
 
-  return { sendMessage, players, playedCards, playerCards, isMaster, isPlaying };
+  return { sendMessage, gameLogs, players, playedCards, playerCards, isMaster, isPlaying, winner };
 };
 
 export default useGameRoom;

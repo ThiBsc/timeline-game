@@ -57,3 +57,27 @@
     color: ivory;
     text-align: center;
 }
+
+.logs {
+    overflow-y: auto;
+    max-height: 200px;
+    font-size: 12px;
+}
+
+.winner {
+    position: absolute;
+    font-size: 2em;
+    background: white;
+    padding: 15px;
+    border-radius: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    text-align: center;
+}
+
+.winner > span {
+    color: steelblue;
+    font-weight: bold;
+}

@@ -11,11 +11,13 @@ const GameRoom = (props) => {
 	const { gameId, pseudo } = props.match.params; // Gets gameId and pseudo from URL
 	const {
 		sendMessage,
+		gameLogs,
 		players,
 		playedCards,
 		playerCards,
 		isMaster,
-		isPlaying
+		isPlaying,
+		winner
 	} = useGameRoom(gameId, pseudo); // Creates a websocket and manages messaging
 	const [selectedCard, setSelectedCard] = useState(0);
   
@@ -33,6 +35,13 @@ const GameRoom = (props) => {
 		<div className="game-info">
 			<div className="player-container">
 				<PlayerList pseudo={pseudo} players={players}/>
+				<ul className="logs list-group">
+					{gameLogs.map((log, i) => (
+					<li	key={i}	className={"list-group-item list-group-item-action list-group-item-secondary py-1"}>
+						{log}
+					</li>
+					))}
+				</ul>
 				{ isMaster ?
 					<button onClick={handleSendShuffleMessage} className="btn btn-secondary form-control">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-shuffle" viewBox="0 0 16 16">
@@ -47,11 +56,26 @@ const GameRoom = (props) => {
 		</div>
 		<div className="game-board">
 			<h1 className="room-name">Room: {gameId}</h1>
-			<CardList cards={playedCards} showSolution={true} canPlay={isPlaying && playerCards.length} playCard={playCard}/>
+			<CardList
+				cards={playedCards}
+				showSolution={true}
+				canPlay={!winner && isPlaying && playerCards.length}
+				playCard={playCard}/>
 
 			<div className="player-card">
-				<CardList cards={playerCards} showSolution={false} canPlay={isPlaying} selectCard={setSelectedCard} selectedCard={selectedCard}/>
+				<CardList
+					cards={playerCards}
+					showSolution={false}
+					canPlay={!winner && isPlaying}
+					selectCard={setSelectedCard}
+					selectedCard={selectedCard}/>
 			</div>
+			{ winner ?
+				<div className="winner">
+					<span>{winner.pseudo}</span><br/> won this game !
+				</div>
+				: null
+			}
 		</div>
 	  </div>
 	);

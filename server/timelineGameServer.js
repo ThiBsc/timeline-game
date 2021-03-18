@@ -12,6 +12,7 @@ const NEW_MASSAGE_EVENT = "newMessageEvent";
 const PLAYER_EVENT = 'playerEvent';
 const PLAYED_CARD_EVENT = 'cardPlayedEvent';
 const PLAYER_CARD_EVENT = 'cardPlayerEvent';
+const WINNER_EVENT = 'winnerEvent';
 
 let roomPlayers = {};
 let deckCards = cards.monuments;
@@ -98,6 +99,7 @@ io.on("connection", (socket) => {
       let nPlayers = roomPlayers[roomId].players.length;
       roomPlayers[roomId].players[Math.floor(Math.random() * nPlayers)].isPlaying = true;
       io.in(roomId).emit(PLAYER_EVENT, roomPlayers[roomId].players);
+      io.in(roomId).emit(WINNER_EVENT, null);
     } else if (/^play;\d+;\d+/.test(data.action)){
       // The player is guessing a card
       let playerIndex = roomPlayers[roomId].players.findIndex(p => p.id === data.senderId);
@@ -130,15 +132,25 @@ io.on("connection", (socket) => {
         roomPlayers[roomId].cards.push(playerCard);
         currentPlayer.cards.push(roomPlayers[roomId].cards.shift());
       }
-      // give the turn to the next player and send the turn update
-      currentPlayer.isPlaying = false;
-      if (playerIndex+1 === roomPlayers[roomId].players.length){
-        playerIndex = -1;
+      let message = `${goodAnswer ? '✅' : '❌'} ${currentPlayer.pseudo}, ${playerCard.name}${goodAnswer ? '' : ` (${playerCard.solution})`}`;
+      io.in(roomId).emit(NEW_MASSAGE_EVENT, message);
+      if (goodAnswer && currentPlayer.cards.length === 0){
+        // we have a winner
+        io.in(roomId).emit(WINNER_EVENT, currentPlayer);
+        io.in(roomId).emit(PLAYED_CARD_EVENT, roomPlayers[roomId].playedCards);
+      } else {
+        // give the turn to the next player and send the turn update
+        currentPlayer.isPlaying = false;
+        if (playerIndex+1 === roomPlayers[roomId].players.length){
+          playerIndex = -1;
+        }
+        roomPlayers[roomId].players[playerIndex+1].isPlaying = true;
+        io.in(roomId).emit(PLAYER_EVENT, roomPlayers[roomId].players);
+        if (goodAnswer){
+          io.in(roomId).emit(PLAYED_CARD_EVENT, roomPlayers[roomId].playedCards);
+        }
+        io.to(data.senderId).emit(PLAYER_CARD_EVENT, currentPlayer.cards);
       }
-      roomPlayers[roomId].players[playerIndex+1].isPlaying = true;
-      io.in(roomId).emit(PLAYER_EVENT, roomPlayers[roomId].players);
-      io.in(roomId).emit(PLAYED_CARD_EVENT, roomPlayers[roomId].playedCards);
-      io.to(data.senderId).emit(PLAYER_CARD_EVENT, currentPlayer.cards);
     }
   });
 
