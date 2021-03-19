@@ -33,6 +33,18 @@
   z-index: 1;
 }
 
+.card-footer.monument {
+  background: steelblue;
+}
+
+.card-footer.discovery {
+  background: green;
+}
+
+.card-footer.invention {
+  background: darkred;
+}
+
 .card-solution {
   position: absolute;
   top: 0;

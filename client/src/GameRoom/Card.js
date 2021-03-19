@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Card.css';
 
-const Card = ({index, name, solution, imgUrl, showSolution, canPlay, playCard, selectCard, selectedCard}) => {
+const Card = ({index, name, solution, imgUrl, category, showSolution, canPlay, playCard, selectCard, selectedCard}) => {
 
     const handleCardSelection = (event) => {
         selectCard(index);
@@ -17,7 +17,7 @@ const Card = ({index, name, solution, imgUrl, showSolution, canPlay, playCard, s
             <div className="card-body">
                 <img src={imgUrl} alt={name}/>
             </div>
-            <div className="card-footer">
+            <div className={`card-footer ${category}`} title={category}>
                 {name}
             </div>
             <div className="card-solution">

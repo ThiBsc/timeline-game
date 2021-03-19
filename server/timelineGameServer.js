@@ -15,7 +15,11 @@ const PLAYER_CARD_EVENT = 'cardPlayerEvent';
 const WINNER_EVENT = 'winnerEvent';
 
 let roomPlayers = {};
-let deckCards = cards.monuments;
+let deckCards = [
+	...cards.monument.map(c => { c.category = 'monument'; return c; }),
+	...cards.invention.map(c => { c.category = 'invention'; return c; }),
+	...cards.discovery.map(c => { c.category = 'discovery'; return c; })
+];
 
 shuffle = (a) => {
 	var j, x, i;
@@ -87,7 +91,9 @@ io.on("connection", (socket) => {
 		console.log("action message", data);
 		if (data.action === 'shuffle') {
 			// Shuffle and give card to every players in the room
-			dispatchCards(roomId, 2);
+			let playerCount = roomPlayers[roomId].players.length;
+			let cardPerPlayer = playerCount <= 3 ? 6 : (playerCount <= 5 ? 5 : 4);
+			dispatchCards(roomId, cardPerPlayer);
 			roomPlayers[roomId].players.forEach(p => {
 				//console.log(p.id);
 				p.isPlaying = false;

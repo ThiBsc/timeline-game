@@ -1,82 +1,5 @@
 {
-    "monuments": [
-        {
-            "name": "Eiffel Tower",
-            "imgUrl": "https://www.tourmag.com/photo/art/default/31957207-29940738.jpg?v=1553612588",
-            "solution": "1887",
-            "intSolution": 1887,
-            "dateSource": "wikipedia"
-        },
-        {
-            "name": "Coliseo",
-            "imgUrl": "http://www.professionvoyages.com/wp-content/uploads/2017/10/colisee-visite-5-etages.png",
-            "solution": "70",
-            "intSolution": 70,
-            "dateSource": "wikipedia"
-        },
-        {
-            "name": "Burj Khalifa",
-            "imgUrl": "https://www.nemoboat.com/wp-content/uploads/2020/01/visiter-burj-khalifa-dubai.jpg",
-            "solution": "2009",
-            "intSolution": 2009,
-            "dateSource": "wikipedia"
-        },
-        {
-            "name": "Liberty Statue",
-            "imgUrl": "https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY1MTc1MTk3ODI0MDAxNjA5/topic-statue-of-liberty-gettyimages-960610006-promo.jpg",
-            "solution": "1886",
-            "intSolution": 1886,
-            "dateSource": "wikipedia"
-        },
-        {
-            "name": "Louvre museum",
-            "imgUrl": "https://s3.ca-central-1.amazonaws.com/tv5-tv5unis-mogador-qa/Images/BEE/07492640.jpg",
-            "solution": "1793",
-            "intSolution": 1793,
-            "dateSource": "wikipedia"
-        },
-        {
-            "name": "Taj Mahal",
-            "imgUrl": "https://lp-cms-production.imgix.net/2020-11/GettyRF_494057771.jpg",
-            "solution": "1631",
-            "intSolution": 1631,
-            "dateSource": "Unesco"
-        },
-        {
-            "name": "Pisa Tower",
-            "imgUrl": "https://content.wdl.org/4240/thumbnail/1430165039/616x510.jpg",
-            "solution": "1173",
-            "intSolution": 1173,
-            "dateSource": "Wikipedia"
-        },
-        {
-            "name": "The Redeemer",
-            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg/170px-Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg",
-            "solution": "1926",
-            "intSolution": 1926,
-            "dateSource": "Wikipedia"
-        },
-        {
-            "name": "Big Ben",
-            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Bigben.jpg",
-            "solution": "1843",
-            "intSolution": 1843,
-            "dateSource": "Wikipedia"
-        },
-        {
-            "name": "The White House",
-            "imgUrl": "https://www.airfrance.fr/FR/common/common/img/tbaf/news/WAS/la-maison-blanche-l-adresse-la-plus-celebre-des-etats-unis/WAS-la-maison-blanche-l-adresse-la-plus-celebre-des-etats-unis-2_1-1024x512.jpg",
-            "solution": "1792",
-            "intSolution": 1792,
-            "dateSource": "Wikipedia"
-        },
-        {
-            "name": "Sydney Opera",
-            "imgUrl": "https://cdn.radiofrance.fr/s3/cruiser-production/2020/01/ed3e7c3b-7ff7-4319-94cd-312a9de0b4c4/600x337_gettyimages-982774858.jpg",
-            "solution": "1959",
-            "intSolution": 1959,
-            "dateSource": "Wikipedia"
-        },
+    "monument": [
         {
             "name": "Giza pyramid",
             "imgUrl": "https://cdn.futura-sciences.com/buildsv6/images/wide1920/b/3/c/b3c38b6fa0_111057_pyramide-egypte.jpg",
@@ -90,6 +13,150 @@
             "solution": "-II c.",
             "intSolution": -200,
             "dateSource": "Wikipedia"
+        },
+        {
+            "name": "Coliseo",
+            "imgUrl": "http://www.professionvoyages.com/wp-content/uploads/2017/10/colisee-visite-5-etages.png",
+            "solution": "70",
+            "intSolution": 70,
+            "dateSource": "wikipedia"
+        },
+        {
+            "name": "Pisa Tower",
+            "imgUrl": "https://content.wdl.org/4240/thumbnail/1430165039/616x510.jpg",
+            "solution": "1173",
+            "intSolution": 1173,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "Taj Mahal",
+            "imgUrl": "https://lp-cms-production.imgix.net/2020-11/GettyRF_494057771.jpg",
+            "solution": "1631",
+            "intSolution": 1631,
+            "dateSource": "Unesco"
+        },
+        {
+            "name": "The White House",
+            "imgUrl": "https://www.airfrance.fr/FR/common/common/img/tbaf/news/WAS/la-maison-blanche-l-adresse-la-plus-celebre-des-etats-unis/WAS-la-maison-blanche-l-adresse-la-plus-celebre-des-etats-unis-2_1-1024x512.jpg",
+            "solution": "1792",
+            "intSolution": 1792,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "Louvre museum",
+            "imgUrl": "https://s3.ca-central-1.amazonaws.com/tv5-tv5unis-mogador-qa/Images/BEE/07492640.jpg",
+            "solution": "1793",
+            "intSolution": 1793,
+            "dateSource": "wikipedia"
+        },
+        {
+            "name": "Big Ben",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Bigben.jpg",
+            "solution": "1843",
+            "intSolution": 1843,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "Liberty Statue",
+            "imgUrl": "https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY1MTc1MTk3ODI0MDAxNjA5/topic-statue-of-liberty-gettyimages-960610006-promo.jpg",
+            "solution": "1886",
+            "intSolution": 1886,
+            "dateSource": "wikipedia"
+        },
+        {
+            "name": "Eiffel Tower",
+            "imgUrl": "https://www.tourmag.com/photo/art/default/31957207-29940738.jpg?v=1553612588",
+            "solution": "1887",
+            "intSolution": 1887,
+            "dateSource": "wikipedia"
+        },
+        {
+            "name": "The Redeemer",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg/170px-Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg",
+            "solution": "1926",
+            "intSolution": 1926,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "Sydney Opera",
+            "imgUrl": "https://cdn.radiofrance.fr/s3/cruiser-production/2020/01/ed3e7c3b-7ff7-4319-94cd-312a9de0b4c4/600x337_gettyimages-982774858.jpg",
+            "solution": "1959",
+            "intSolution": 1959,
+            "dateSource": "Wikipedia"
+        },
+        {
+            "name": "Burj Khalifa",
+            "imgUrl": "https://www.nemoboat.com/wp-content/uploads/2020/01/visiter-burj-khalifa-dubai.jpg",
+            "solution": "2009",
+            "intSolution": 2009,
+            "dateSource": "wikipedia"
+        }
+    ],
+    "invention": [
+        {
+            "name": "Printing",
+            "imgUrl": "https://soirmag.lesoir.be/sites/default/files/dpistyles_v2/ena_16_9_in_line/2017/07/20/node_105520/4782271/public/2017/07/20/B9712662495Z.1_20170720104438_000+GUN9FJSET.2-0.jpg?itok=QOYB5zAy1521420863",
+            "solution": "1450",
+            "intSolution": 1450,
+            "dateSource": "soirmag"
+        },
+        {
+            "name": "Vaccine",
+            "imgUrl": "https://images.omerlocdn.com/resize?url=https%3A%2F%2Fgcm.omerlocdn.com%2Fproduction%2Fglobal%2Ffiles%2Fimage%2F206d3857-70a1-466f-b119-aede36cf1413.png&width=1024&type=jpeg",
+            "solution": "1796",
+            "intSolution": 1796,
+            "dateSource": "soirmag"
+        },
+        {
+            "name": "Electric bulb",
+            "imgUrl": "https://dailygeekshow.com/wp-content/uploads/2019/01/ampoule-blanche.jpg",
+            "solution": "1879",
+            "intSolution": 1879,
+            "dateSource": "soirmag"
+        },
+        {
+            "name": "Aspartame",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Aspartame-3D-balls.png/1024px-Aspartame-3D-balls.png",
+            "solution": "1965",
+            "intSolution": 1965,
+            "dateSource": "wikipedia"
+        },
+        {
+            "name": "Kevlar",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Aramid_fiber2.jpg/800px-Aramid_fiber2.jpg",
+            "solution": "1965",
+            "intSolution": 1965,
+            "dateSource": "wikipedia"
+        },
+        {
+            "name": "Post-it",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/PostItNotePad.JPG",
+            "solution": "1980",
+            "intSolution": 1980,
+            "dateSource": "wikipedia"
+        }
+    ],
+    "discovery": [
+        {
+            "name": "America",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/N%26SAmerica-pol.jpg/800px-N%26SAmerica-pol.jpg",
+            "solution": "1492",
+            "intSolution": 1492,
+            "dateSource": "wikipedia"
+        },
+        {
+            "name": "Infrared",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Infrared_dog.jpg",
+            "solution": "1800",
+            "intSolution": 1800,
+            "dateSource": "wikipedia"
+        },
+        {
+            "name": "Radioactivity",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Radioactive.svg/220px-Radioactive.svg.png",
+            "solution": "1892",
+            "intSolution": 1892,
+            "dateSource": "wikipedia"
         }
     ]
 }
