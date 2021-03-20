@@ -7,7 +7,7 @@ const PLAYED_CARD_EVENT = 'cardPlayedEvent';
 const PLAYER_CARD_EVENT = 'cardPlayerEvent';
 const WINNER_EVENT = 'winnerEvent';
 
-const SOCKET_SERVER_URL = 'http://192.168.0.10:4000';
+const SOCKET_SERVER_URL = 'http://localhost:4000';
 
 const useGameRoom = (roomId, pseudo) => {
 	const [gameLogs, setGameLogs] = useState(["🙋‍♂️ welcome"]);
