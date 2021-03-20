@@ -7,6 +7,9 @@
 .game-info {
     display: flex;
     flex-flow: column;
+    width: 150px;
+    min-width: 150px;
+    transition: 0.5s;
 }
 
 .game-board {
@@ -48,7 +51,6 @@
     display: flex;
     flex-flow: column;
     background: #64a6ed12;
-    width: 150px;
     height: 100%;
 }
 
@@ -75,9 +77,18 @@
     transform: translate(-50%, -50%);
     z-index: 5;
     text-align: center;
+    box-shadow: 0 0 30px black;
 }
 
 .winner > span {
     color: steelblue;
     font-weight: bold;
+}
+
+.collapse-btn {
+    display: block;
+    position: fixed;
+    transition: 0.5s;
+    width: 48px;
+    height: 48px;
 }

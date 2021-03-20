@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import useGameRoom from '../useGameRoom';
 import CardList from './CardList';
@@ -20,19 +20,42 @@ const GameRoom = (props) => {
 		winner
 	} = useGameRoom(gameId, pseudo); // Creates a websocket and manages messaging
 	const [selectedCard, setSelectedCard] = useState(0);
+	const [displayGameInfo, setDisplayGameInfo] = useState(false);
+	const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
   
 	const handleSendShuffleMessage = () => {
 	  sendMessage("shuffle");
-	};
+	}
+
+	const handleWindowSizeChange = () => {
+		setIsMobile(window.innerWidth <= 600);
+	}
 
 	const playCard = (boardCardId) => {
 		sendMessage(`play;${selectedCard};${boardCardId}`);
 		setSelectedCard(0);
 	}
+
+	const toggleGameInfo = () => {
+		setDisplayGameInfo(!displayGameInfo);
+	}
+
+	useEffect(() => {
+		window.addEventListener('resize', handleWindowSizeChange);
+		return () => {
+			window.removeEventListener('resize', handleWindowSizeChange);
+		}
+	})
   
 	return (
 	  <div className="game-room">
-		<div className="game-info">
+		<div className="game-info" style={{marginLeft: `${!isMobile || displayGameInfo ? '0' : '-150px'}`}}>
+			<button onClick={toggleGameInfo} className="btn btn-warning form-control collapse-btn"
+					style={{left: `${displayGameInfo ? '150px' : '0'}`, display: `${isMobile ? 'block' : 'none'}`}}>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-left-fill" viewBox="0 0 16 16">
+					<path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+				</svg>
+			</button>
 			<div className="player-container">
 				<PlayerList pseudo={pseudo} players={players}/>
 				<ul className="logs list-group">

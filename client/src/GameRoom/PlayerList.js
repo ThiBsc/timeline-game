@@ -5,7 +5,7 @@ import './PlayerList.css';
 const PlayerList = ({players, pseudo}) => {
     
     return (
-        <div className="player-list">
+        <div className="player-list nav-item">
             <h2>Players</h2>
             <ul className="players list-group">
                 {players.map((player, i) => (
