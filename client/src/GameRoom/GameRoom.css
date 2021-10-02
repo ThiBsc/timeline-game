@@ -1,7 +1,7 @@
 .game-room {
     display: flex;
     flex-flow: row;
-    height: 100%;
+    width: 100%;
 }
 
 .game-info {
