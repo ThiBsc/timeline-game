@@ -40,5 +40,7 @@ To add a card to the game, you just have to add a json object in the list of you
 
 ## Screenshots
 
-<img alt="cellphone" src="screenshot/cellphone.png" style="height:370px"/>
-<img alt="computer" src="screenshot/computer.png" style="height:370px"/>
+<div style="display: flex; flex-flow: row">
+    <img alt="cellphone" src="screenshot/cellphone.png" style="height: 500px"/>
+    <img alt="computer" src="screenshot/computer.png" style="height: 500px"/>
+</div>
