@@ -38,3 +38,7 @@ The file `server/Cards.json` contains the description of the cards in this forma
 ```
 To add a card to the game, you just have to add a json object in the list of your wanted category.
 
+## Screenshots
+
+<img alt="cellphone" src="screenshot/cellphone.png" style="height:370px"/>
+<img alt="computer" src="screenshot/computer.png" style="height:370px"/>
